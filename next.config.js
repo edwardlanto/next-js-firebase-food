@@ -3,17 +3,6 @@
 // https://github.com/vercel/next.js/tree/canary/packages/next-mdx
 module.exports = {
   webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.mdx/,
-      use: [
-        options.defaultLoaders.babel,
-        {
-          loader: '@mdx-js/loader',
-          options: pluginOptions.options,
-        },
-      ],
-    });
-
     return config;
   },
 };

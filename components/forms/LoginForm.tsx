@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useAuth } from '../../hooks/useAuth';
+import Link from 'next/link';
 
 interface LoginData {
   email: string;
@@ -68,6 +69,18 @@ const LoginForm: React.FC = () => {
               {errors.password.message}
             </div>
           )}
+        </div>
+      </div>
+      <div className="mt-4 flex items-end">
+        <div className="text-sm leading-5">
+          <Link href="/reset-password">
+            <a
+              href="#"
+              className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+            >
+              Forgot your password?
+            </a>
+          </Link>
         </div>
       </div>
       <div className="mt-4">

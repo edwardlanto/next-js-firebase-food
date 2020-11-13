@@ -97,10 +97,17 @@ const useAuthProvider = () => {
     return auth.signOut().then(() => setUser(false));
   };
 
+  const sendPasswordResetEmail = (email) => {
+    return auth.sendPasswordResetEmail(email).then((response) => {
+      return response;
+    });
+  };
+
   return {
     user,
     signUp,
     signIn,
     signOut,
+    sendPasswordResetEmail,
   };
 };
