@@ -7,3 +7,7 @@ TypeScript is an open-source language that builds on JavaScript by adding static
 next-env.d.ts file, which ensures Next.js types are picked up by the TypeScript compiler. You should not touch this file.
 
 PostCSS, a tool for transforming CSS with JavaScript because Tailwind CSS is a PostCSS plug-in
+
+## Auth tutorial link
+
+https://medium.com/better-programming/implement-user-authentication-with-next-js-and-firebase-fb9414adba08
