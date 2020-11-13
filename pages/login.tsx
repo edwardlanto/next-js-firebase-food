@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import LoginForm from '../components/forms/LoginForm';
+import LoginForm from '../components/forms/SignInForm';
 const LoginPage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center bg-gray-200">
