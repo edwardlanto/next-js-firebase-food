@@ -25,7 +25,11 @@ export async function categories() {
 
   categories.map(async (x) =>
     x.map((data, i) => {
-      let obj = new Object();
+      let obj = {
+        image: null,
+        title: data.title,
+        alias: data.alias,
+      };
       const url = `https://api.unsplash.com/search/photos?query=coffee&per_page=2&client_id=${process.env.UNSPLASH_API_KEY}`;
       fetch(url)
         .then((response) => {
@@ -33,7 +37,6 @@ export async function categories() {
         })
         .then((res) => {
           obj.image = res.results[0].urls.small;
-          obj.title = data.title;
           console.log('title', data.title);
         });
     })
