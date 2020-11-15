@@ -1,11 +1,6 @@
 const axios = require('axios');
+const Category = require('../classes/category');
 
-// Unsplash API module
-import Unsplash, { toJson } from 'unsplash-js';
-
-const unsplash = new Unsplash({ accessKey: process.env.UNSPLASH_API_KEY });
-
-let obj = new Object();
 export async function categories() {
   const { data } = await axios.get(
     'https://api.yelp.com/v3/businesses/search',
@@ -26,34 +21,23 @@ export async function categories() {
   let categories = data.businesses
     .filter((x) => x.rating >= 4.5)
     .map((x) => x.categories);
-
-  let categoriesWithCount = [];
+  let arr = [];
 
   categories.map(async (x) =>
     x.map((data, i) => {
-      async function getImage(title) {
-        return unsplash.search
-          .photos(`${title} food`, 1, 1, 'square')
-          .then(toJson)
-          .then((data) => {
-            return data;
-          });
-      }
-
-      obj = {
-        title: data.title,
-        alias: data.title,
-        count: 1,
-        image: getImage(data.title),
-      };
-
-      if (categoriesWithCount.some((x, i) => x.title === obj.title)) {
-        categoriesWithCount[i].count = categoriesWithCount[i].count + 1;
-      } else {
-        categoriesWithCount.push(obj);
-      }
+      let obj = new Object();
+      const url = `https://api.unsplash.com/search/photos?query=coffee&per_page=2&client_id=${process.env.UNSPLASH_API_KEY}`;
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((res) => {
+          obj.image = res.results[0].urls.small;
+          obj.title = data.title;
+          console.log('title', data.title);
+        });
     })
   );
 
-  return JSON.stringify(categoriesWithCount);
+  return arr;
 }

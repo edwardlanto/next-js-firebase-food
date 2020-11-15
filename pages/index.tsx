@@ -1,8 +1,7 @@
 const axios = require('axios');
-import { categories } from '../models/categories';
+import { categories } from '../helpers/categories';
 
 export default function Home({ data }) {
-
   return (
     <div className="md:flex bg-white rounded-lg p-24 justify-center">
       <div className="text-center md:text-left">Home</div>
@@ -16,7 +15,7 @@ export async function getStaticProps(context) {
   console.log('data', data);
   return {
     props: {
-      data:'test'
+      data: 'test',
     },
   };
 }
