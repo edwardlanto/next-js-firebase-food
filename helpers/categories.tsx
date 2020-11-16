@@ -29,7 +29,9 @@ export async function categories() {
         image: null,
         title: data.title,
         alias: data.alias,
+        count: 0,
       };
+
       const url = `https://api.unsplash.com/search/photos?query=coffee&per_page=2&client_id=${process.env.UNSPLASH_API_KEY}`;
       fetch(url)
         .then((response) => {
@@ -37,8 +39,14 @@ export async function categories() {
         })
         .then((res) => {
           obj.image = res.results[0].urls.small;
-          console.log('title', data.title);
+          console.log('title', obj);
         });
+
+      if (arr.findIndex((item) => item.title === data.title) === -1) {
+        arr.push(obj);
+      } else {
+        console.log('found');
+      }
     })
   );
 
