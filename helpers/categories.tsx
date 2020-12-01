@@ -9,7 +9,7 @@ export async function categories() {
                 term: 'restaurants',
                 latitude: 49.218739,
                 longitude: -123.082031,
-                limit: 1,
+                limit: 5,
                 radius: 5000,
             },
             headers: {
@@ -18,37 +18,20 @@ export async function categories() {
         }
     )
 
-    let categories = data.businesses
-        .filter((x) => x.rating >= 4.5)
-        .map((x) => x.categories)
-    let arr = []
+    let categories = data.businesses.filter((x) => x.rating >= 4.5)
+    // .map((x) => x.categories);
 
-    categories.map(async (x) =>
-        x.map((data, i) => {
-            let obj = {
-                image: null,
-                title: data.title,
-                alias: data.alias,
-                count: 0,
-            }
+    let categoriesArr = categories.map((x) => {
+        return x.categories[0]
+    })
 
-            const url = `https://api.unsplash.com/search/photos?query=coffee&per_page=2&client_id=${process.env.UNSPLASH_API_KEY}`
-            fetch(url)
-                .then((response) => {
-                    return response.json()
-                })
-                .then((res) => {
-                    obj.image = res.results[0].urls.small
-                    console.log('title', obj)
-                })
+    for (let i = 0; i < categoriesArr.length; i++) {
+        const url = `https://api.unsplash.com/search/photos?query=coffee&per_page=2&client_id=${process.env.UNSPLASH_API_KEY}`
+        const data = await axios.get(url).then((x) => x)
+        categoriesArr[i].image = data.data.results[0].urls.small
+    }
 
-            if (arr.findIndex((item) => item.title === data.title) === -1) {
-                arr.push(obj)
-            } else {
-                console.log('found')
-            }
-        })
-    )
-
-    return arr
+    return {
+        categoriesArr,
+    }
 }
