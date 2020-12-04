@@ -1,51 +1,49 @@
 import Link from 'next/link'
 import LoginForm from '../components/forms/SignInForm'
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+import firebase from 'firebase'
 const LoginPage: React.FC = () => {
+    // Configure FirebaseUI.
+    const uiConfig = {
+        // Popup signin flow rather than redirect flow.
+        signInFlow: 'popup',
+        // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+        signInSuccessUrl: '/signedIn',
+        // We will display Google and Facebook as auth providers.
+        signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        ],
+    }
+
     return (
         <section className="absolute w-full top-0">
             <div
                 className="absolute top-0 w-full h-full bg-gray-900"
-                style={{
-                    backgroundImage: `url("https://demos.creative-tim.com/tailwindcss-starter-project/static/media/register_bg_2.2fee0b50.png")`,
-                }}
+                // style={{
+                //     backgroundImage: `url("/food-bg.jpeg")`,
+                //     backgroundRepeat: 'no-repeat',
+                //     backgroundSize: 'cover'
+                // }}
             ></div>
             <div className="container mx-auto px-4 h-full">
                 <div className="flex content-center items-center justify-center h-full">
-                    <div className="w-full lg:w-4/12 px-4 pt-32">
+                    <div className="w-full lg:w-5/12 px-4 pt-32">
                         <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 border-0">
                             <div className="rounded-t mb-0 px-6 py-6">
                                 <div className="text-center mb-3">
+                                    <h2 className="logo-text font-serif text-5xl">
+                                        BYTE
+                                    </h2>
                                     <h6 className="text-gray-600 text-sm font-bold">
                                         Sign in with
                                     </h6>
                                 </div>
-                                <div className="btn-wrapper text-center">
-                                    <button
-                                        className="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs"
-                                        type="button"
-                                        style="transition: all 0.15s ease 0s;"
-                                    >
-                                        <img
-                                            alt="..."
-                                            className="w-5 mr-1"
-                                            src="https://demos.creative-tim.com/tailwindcss-starter-project/static/media/github.4ffd4fe7.svg"
-                                        />
-                                        Github
-                                    </button>
-                                    <button
-                                        className="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs"
-                                        type="button"
-                                        style={{
-                                            transition: 'all 0.15s ease 0s',
-                                        }}
-                                    >
-                                        <img
-                                            alt="..."
-                                            className="w-5 mr-1"
-                                            src="https://demos.creative-tim.com/tailwindcss-starter-project/static/media/google.87be59a1.svg"
-                                        />
-                                        Google
-                                    </button>
+                                <div className="btn-wrapper text-center flex-row">
+                                    <StyledFirebaseAuth
+                                        uiConfig={uiConfig}
+                                        firebaseAuth={firebase.auth()}
+                                    />
                                 </div>
                                 <hr className="mt-6 border-b-1 border-gray-400" />
                             </div>
@@ -53,67 +51,7 @@ const LoginPage: React.FC = () => {
                                 <div className="text-gray-500 text-center mb-3 font-bold">
                                     <small>Or sign in with credentials</small>
                                 </div>
-                                <form>
-                                    <div className="relative w-full mb-3">
-                                        <label
-                                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                            htmlFor="grid-password"
-                                        >
-                                            Email
-                                        </label>
-                                        <input
-                                            type="email"
-                                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                                            placeholder="Email"
-                                            style={{
-                                                transition: 'all 0.15s ease 0s',
-                                            }}
-                                        />
-                                    </div>
-                                    <div className="relative w-full mb-3">
-                                        <label
-                                            className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                            htmlFor="grid-password"
-                                        >
-                                            Password
-                                        </label>
-                                        <input
-                                            type="password"
-                                            className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                                            placeholder="Password"
-                                            style={{
-                                                transition: 'all 0.15s ease 0s',
-                                            }}
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="inline-flex items-center cursor-pointer">
-                                            <input
-                                                id="customCheckLogin"
-                                                type="checkbox"
-                                                className="form-checkbox text-gray-800 ml-1 w-5 h-5"
-                                                style={{
-                                                    transition:
-                                                        'all 0.15s ease 0s',
-                                                }}
-                                            />
-                                            <span className="ml-2 text-sm font-semibold text-gray-700">
-                                                Remember me
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div className="text-center mt-6">
-                                        <button
-                                            className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                                            type="button"
-                                            style={{
-                                                transition: 'all 0.15s ease 0s',
-                                            }}
-                                        >
-                                            Sign In
-                                        </button>
-                                    </div>
-                                </form>
+                                <LoginForm />
                             </div>
                         </div>
                         <div className="flex flex-wrap mt-6">
