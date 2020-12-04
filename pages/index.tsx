@@ -5,8 +5,7 @@ import SearchCategories from '../components/SearchCategories/SearchCategories'
 export default function Home({ data }) {
     return (
         <div>
-            TEST
-            <SearchCategories />
+            <SearchCategories categories={data.categoriesArr} />
         </div>
     )
 }

@@ -24,11 +24,14 @@ export async function categories() {
     let categoriesArr = categories.map((x) => {
         return x.categories[0]
     })
-
+    console.log('categoriesArr', categoriesArr)
     for (let i = 0; i < categoriesArr.length; i++) {
-        const url = `https://api.unsplash.com/search/photos?query=coffee&per_page=2&client_id=${process.env.UNSPLASH_API_KEY}`
+        const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(
+            categoriesArr[i].alias + ' food'
+        )}&per_page=2&client_id=${process.env.UNSPLASH_API_KEY}`
         const data = await axios.get(url).then((x) => x)
-        categoriesArr[i].image = data.data.results[0].urls.small
+        console.log('small', data.data.results[0].urls)
+        categoriesArr[i].image = data.data.results[0].urls.regular
     }
 
     return {
