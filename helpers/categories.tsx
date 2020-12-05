@@ -27,10 +27,10 @@ export async function categories() {
     console.log('categoriesArr', categoriesArr)
     for (let i = 0; i < categoriesArr.length; i++) {
         const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(
-            categoriesArr[i].alias + ' food'
+            categoriesArr[i].alias + ' food background'
         )}&per_page=2&client_id=${process.env.UNSPLASH_API_KEY}`
         const data = await axios.get(url).then((x) => x)
-        console.log('small', data.data.results[0].urls)
+        console.log('small', data.data.results[1].urls)
         categoriesArr[i].image = data.data.results[0].urls.regular
     }
 

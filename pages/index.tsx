@@ -6,6 +6,15 @@ export default function Home({ data }) {
     return (
         <div>
             <SearchCategories categories={data.categoriesArr} />
+            <div
+                className="main-carousel"
+                data-flickity='{ "cellAlign": "left", "contain": true }'
+            >
+                <div className="carousel-cell">...</div>
+                <div className="carousel-cell">...</div>
+                <div className="carousel-cell">...</div>
+                ...
+            </div>
         </div>
     )
 }

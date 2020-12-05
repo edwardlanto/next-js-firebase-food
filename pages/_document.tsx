@@ -15,10 +15,15 @@ class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,800&display=swap"
                         rel="stylesheet"
                     />
+                    <link
+                        rel="stylesheet"
+                        href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+                    ></link>
                 </Head>
                 <body>
                     <Main />
                     <NextScript />
+                    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
                 </body>
             </Html>
         )

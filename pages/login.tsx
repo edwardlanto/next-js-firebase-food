@@ -20,11 +20,11 @@ const LoginPage: React.FC = () => {
         <section className="absolute w-full top-0">
             <div
                 className="absolute top-0 w-full h-full bg-gray-900"
-                // style={{
-                //     backgroundImage: `url("/food-bg.jpeg")`,
-                //     backgroundRepeat: 'no-repeat',
-                //     backgroundSize: 'cover'
-                // }}
+                style={{
+                    backgroundImage: `url("/food-bg.jpeg")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                }}
             ></div>
             <div className="container mx-auto px-4 h-full">
                 <div className="flex content-center items-center justify-center h-full">
