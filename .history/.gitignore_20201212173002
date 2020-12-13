@@ -38,3 +38,5 @@ yarn-error.log*
 /data
 
 # firebase
+
+debug.log
