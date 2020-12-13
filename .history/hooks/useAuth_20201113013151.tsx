@@ -4,7 +4,7 @@ import { auth, db } from '../config/firebase';
 const authContext = createContext({ user: {} });
 const { Provider } = authContext;
 
-export function AuthProvider(props: { children: React.ReactElement }): JSX.Element {
+export function AuthProvider(props: { children: ReactNode }): JSX.Element {
   const auth = useAuthProvider();
   return <Provider value={auth}>{props.children}</Provider>;
 }
@@ -15,7 +15,7 @@ export const useAuth: any = () => {
 
 // Provider hook that creates an auth object and handles it's state
 const useAuthProvider = () => {
-  const getUserAdditionalData = (user) => {
+  const getUserAdditionalData = (user: firebase.User) => {
     return db
       .collection('users')
       .doc(user.uid)
@@ -28,7 +28,7 @@ const useAuthProvider = () => {
   };
 
   const [user, setUser] = useState(null);
-  const handleAuthStateChanged = (user) => {
+  const handleAuthStateChanged = (user: firebase.User) => {
     setUser(user);
     if (user) {
       getUserAdditionalData(user);

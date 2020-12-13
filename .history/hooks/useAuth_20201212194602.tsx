@@ -28,7 +28,7 @@ const useAuthProvider = () => {
   };
 
   const [user, setUser] = useState(null);
-  const handleAuthStateChanged = (user) => {
+  const handleAuthStateChanged = (user: firebase.User) => {
     setUser(user);
     if (user) {
       getUserAdditionalData(user);

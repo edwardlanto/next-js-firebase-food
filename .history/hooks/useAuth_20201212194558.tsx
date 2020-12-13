@@ -15,7 +15,7 @@ export const useAuth: any = () => {
 
 // Provider hook that creates an auth object and handles it's state
 const useAuthProvider = () => {
-  const getUserAdditionalData = (user) => {
+  const getUserAdditionalData = (user: firebase.default) => {
     return db
       .collection('users')
       .doc(user.uid)
@@ -28,7 +28,7 @@ const useAuthProvider = () => {
   };
 
   const [user, setUser] = useState(null);
-  const handleAuthStateChanged = (user) => {
+  const handleAuthStateChanged = (user: firebase.User) => {
     setUser(user);
     if (user) {
       getUserAdditionalData(user);
