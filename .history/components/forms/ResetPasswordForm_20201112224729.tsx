@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
-import { useAuth } from '../../hooks/useAuth'
-
+import { useAuth } from 'hooks/useAuth'
 const ResetPasswordForm: React.FC = () => {
     const { register, errors, handleSubmit } = useForm()
     const auth = useAuth()
