@@ -1,7 +1,7 @@
 const axios = require('axios')
 import { categories } from '../helpers/categories'
 // import Layout from '../components/dashboard-layout'
-// import SearchCategories from '../components/SearchCategories/SearchCategories'
+import SearchCategories from '../components/SearchCategories/SearchCategories'
 export default function Home({ data }) {
     return (
         <div>
