@@ -2,6 +2,7 @@ import { useRequireAuth } from '../hooks/useRequireAuth'
 import SearchCategories from '../components/SearchCategories/SearchCategories'
 import { categories } from '../helpers/categories'
 import RestaurantStepper from '../components/steppers/RestaurantStepper'
+import { GetStaticProps } from 'next'
 import React, { useState } from 'react';
 
 export default function DashboardDashBoardPage({ data }){
