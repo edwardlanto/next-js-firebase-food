@@ -12,10 +12,11 @@ export default function Home({ data }) {
 
 // This gets called on every request
 export async function getStaticProps(context) {
-    // const data = await categories()
+    const data = await categories()
+    console.log('data', data)
     return {
         props: {
-            data: "test"
+            data: data,
         },
     }
 }

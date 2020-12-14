@@ -15,7 +15,7 @@ export async function getStaticProps(context) {
     // const data = await categories()
     return {
         props: {
-            data: "test"
+            data: data,
         },
     }
 }
