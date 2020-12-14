@@ -3,7 +3,7 @@ import SearchCategories from '../components/SearchCategories/SearchCategories'
 import { categories } from '../helpers/categories'
 import RestaurantStepper from '../components/steppers/RestaurantStepper'
 export default function DashboardDashBoardPage({ data }) {
-    const auth = useRequireAuth();
+    const auth = useRequireAuth()
     if (!auth.user) return null
     return (
         <>
@@ -394,13 +394,13 @@ export async function getStaticProps(context) {
     const data = await categories();
     if (!data) {
         return {
-            notFound: true,
+          notFound: true,
         }
-    }
-
+      }
+    
     return {
         props: {
-            data
-        }
+            data: data
+        },
     }
 }

@@ -394,10 +394,10 @@ export async function getStaticProps(context) {
     const data = await categories();
     if (!data) {
         return {
-            notFound: true,
+          notFound: true,
         }
-    }
-
+      }
+    
     return {
         props: {
             data

@@ -1,3 +1,8 @@
+module.exports = {
+  purge: false,
+
+};
+
 // tailwind.config.js
 module.exports = {
   purge: [

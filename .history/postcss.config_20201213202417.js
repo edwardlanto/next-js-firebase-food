@@ -1,3 +1,8 @@
+module.exports = {
+  purge: false,
+
+};
+
 // tailwind.config.js
 module.exports = {
   purge: [
@@ -5,7 +10,6 @@ module.exports = {
     './src/**/*.vue',
     './src/**/*.jsx',
     './src/**/*.tsx',
-    './src/**/*.ts',
   ],
   theme: {},
   variants: {},
