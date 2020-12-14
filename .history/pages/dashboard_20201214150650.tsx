@@ -5,7 +5,7 @@ import RestaurantStepper from '../components/steppers/RestaurantStepper'
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react';
 
-export default function DashboardDashBoardPage({ data }){
+export default function DashboardDashBoardPage({ dat }){
     const auth = useRequireAuth();
     if (!auth.user) return null
     return (
@@ -199,7 +199,7 @@ export default function DashboardDashBoardPage({ data }){
                         >
                             {/* <!-- Card list container --> */}
 
-                            <SearchCategories categories={data?.categoriesArr} />
+                            <SearchCategories categories={data?.SearchCatego} />
                         </div>
                     </div>
                 </main>
@@ -387,7 +387,7 @@ export default function DashboardDashBoardPage({ data }){
                     </div>
                 </aside>
             </div>
-            {/* <RestaurantStepper /> */}
+            <RestaurantStepper />
         </>
     )
 }

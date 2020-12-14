@@ -5,7 +5,8 @@ import RestaurantStepper from '../components/steppers/RestaurantStepper'
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react';
 
-export default function DashboardDashBoardPage({ data }){
+export default async function DashboardDashBoardPage({ data }){
+    let _categories = await categories;
     const auth = useRequireAuth();
     if (!auth.user) return null
     return (
@@ -199,7 +200,7 @@ export default function DashboardDashBoardPage({ data }){
                         >
                             {/* <!-- Card list container --> */}
 
-                            <SearchCategories categories={data?.categoriesArr} />
+                            <SearchCategories categories={_categories} />
                         </div>
                     </div>
                 </main>
@@ -387,18 +388,16 @@ export default function DashboardDashBoardPage({ data }){
                     </div>
                 </aside>
             </div>
-            {/* <RestaurantStepper /> */}
+            <RestaurantStepper />
         </>
     )
 }
 
 // This gets called on every request
 export const getStaticProps: GetStaticProps = async (context) => {
-    const data = await categories();
-    console.log("DATA", data)
     return {
         props: {
-            data
+            data:'test'
         }
     }
 }

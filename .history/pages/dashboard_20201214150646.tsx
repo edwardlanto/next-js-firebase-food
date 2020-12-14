@@ -199,7 +199,7 @@ export default function DashboardDashBoardPage({ data }){
                         >
                             {/* <!-- Card list container --> */}
 
-                            <SearchCategories categories={data?.categoriesArr} />
+                            <SearchCategories categories={data?.SearchCatego} />
                         </div>
                     </div>
                 </main>
@@ -387,7 +387,7 @@ export default function DashboardDashBoardPage({ data }){
                     </div>
                 </aside>
             </div>
-            {/* <RestaurantStepper /> */}
+            <RestaurantStepper />
         </>
     )
 }

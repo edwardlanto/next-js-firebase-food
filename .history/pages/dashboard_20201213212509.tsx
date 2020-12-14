@@ -2,10 +2,8 @@ import { useRequireAuth } from '../hooks/useRequireAuth'
 import SearchCategories from '../components/SearchCategories/SearchCategories'
 import { categories } from '../helpers/categories'
 import RestaurantStepper from '../components/steppers/RestaurantStepper'
-import { GetStaticProps } from 'next'
-import React, { useState } from 'react';
-
-export default function DashboardDashBoardPage({ data }){
+import react from 'react'; 
+export default function DashboardDashBoardPage({ data }): React.FC {
     const auth = useRequireAuth();
     if (!auth.user) return null
     return (
@@ -199,7 +197,7 @@ export default function DashboardDashBoardPage({ data }){
                         >
                             {/* <!-- Card list container --> */}
 
-                            <SearchCategories categories={data?.categoriesArr} />
+                            <SearchCategories categories={data.categoriesArr} />
                         </div>
                     </div>
                 </main>
@@ -387,18 +385,18 @@ export default function DashboardDashBoardPage({ data }){
                     </div>
                 </aside>
             </div>
-            {/* <RestaurantStepper /> */}
+            <RestaurantStepper />
         </>
     )
 }
 
 // This gets called on every request
-export const getStaticProps: GetStaticProps = async (context) => {
-    const data = await categories();
-    console.log("DATA", data)
+export async function getStaticProps(context) {
+    // const data = await categories();
+
     return {
         props: {
-            data
+            data:"test"
         }
     }
 }

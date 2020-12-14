@@ -6,6 +6,8 @@ import { GetStaticProps } from 'next'
 import React, { useState } from 'react';
 
 export default function DashboardDashBoardPage({ data }){
+    const [_categories, setCategories] = useState([]);
+    setCategories(data);
     const auth = useRequireAuth();
     if (!auth.user) return null
     return (
@@ -199,7 +201,7 @@ export default function DashboardDashBoardPage({ data }){
                         >
                             {/* <!-- Card list container --> */}
 
-                            <SearchCategories categories={data?.categoriesArr} />
+                            <SearchCategories categories={data.categoriesArr} />
                         </div>
                     </div>
                 </main>
@@ -387,7 +389,7 @@ export default function DashboardDashBoardPage({ data }){
                     </div>
                 </aside>
             </div>
-            {/* <RestaurantStepper /> */}
+            <RestaurantStepper />
         </>
     )
 }

@@ -11,7 +11,7 @@ export default function Home({ data }) {
 }
 
 // This gets called on every request
-export const getStaticProps: GetStaticProps = async (context) => {
+export async function getStaticProps(context) {
     const data = await categories();
     return {
         props: {

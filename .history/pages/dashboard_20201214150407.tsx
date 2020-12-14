@@ -199,7 +199,7 @@ export default function DashboardDashBoardPage({ data }){
                         >
                             {/* <!-- Card list container --> */}
 
-                            <SearchCategories categories={data?.categoriesArr} />
+                            <SearchCategories categories={data?.SearchCatego} />
                         </div>
                     </div>
                 </main>
@@ -387,18 +387,16 @@ export default function DashboardDashBoardPage({ data }){
                     </div>
                 </aside>
             </div>
-            {/* <RestaurantStepper /> */}
+            <RestaurantStepper />
         </>
     )
 }
 
 // This gets called on every request
 export const getStaticProps: GetStaticProps = async (context) => {
-    const data = await categories();
-    console.log("DATA", data)
     return {
         props: {
-            data
+            data:'test'
         }
     }
 }
