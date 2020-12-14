@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import SignUpForm from '../components/forms/SignUpForm'
-const SignUpPage = () => {
+const SignUpPage: React.FC = () => {
     return (
         <div className="min-h-screen flex bg-gray-200">
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
