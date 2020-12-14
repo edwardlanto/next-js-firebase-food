@@ -26,7 +26,11 @@ const ResetPasswordForm: React.FC = () => {
                         type="email"
                         name="email"
                         ref={register({
-                            required: 'Please enter an email'
+                            required: 'Please enter an email',
+                            pattern: {
+                                value: 'test',
+                                message: 'Not a valid email',
+                            },
                         })}
                     />
                     {errors.email && (
