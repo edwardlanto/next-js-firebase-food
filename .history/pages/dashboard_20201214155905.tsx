@@ -392,12 +392,11 @@ export default function DashboardDashBoardPage({ data }){
 
 // This gets called on every request
 export const getStaticProps = async (context) => {
-    type CategoriesData = {
+    type CategoriesData{
 
     }
 
     const data = await categories();
-    console.log('data', data)
     return {
         props: {
             data

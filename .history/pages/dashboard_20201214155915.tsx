@@ -397,7 +397,6 @@ export const getStaticProps = async (context) => {
     }
 
     const data = await categories();
-    console.log('data', data)
     return {
         props: {
             data
