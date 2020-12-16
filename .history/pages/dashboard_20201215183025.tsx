@@ -385,7 +385,7 @@ export default function DashboardDashBoardPage({ data }){
                     </div>
                 </aside>
             </div>
-            {/* <RestaurantStepper /> */}
+            <RestaurantStepper />
         </>
     )
 }

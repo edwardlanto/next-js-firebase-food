@@ -1,12 +1,12 @@
-// import { useRequireAuth } from '../hooks/useRequireAuth'
+import { useRequireAuth } from '../hooks/useRequireAuth'
 import SearchCategories from '../components/SearchCategories/SearchCategories'
 import { categories } from '../helpers/categories'
 // import RestaurantStepper from '../components/steppers/RestaurantStepper'
 import React, { useState } from 'react';
 
 export default function DashboardDashBoardPage({ data }){
-    // const auth = useRequireAuth();
-    // if (!auth.user) return null
+    const auth = useRequireAuth();
+    if (!auth.user) return null
     return (
         <>
             <div className="h-screen w-full flex overflow-hidden select-none">
@@ -385,7 +385,7 @@ export default function DashboardDashBoardPage({ data }){
                     </div>
                 </aside>
             </div>
-            {/* <RestaurantStepper /> */}
+            <RestaurantStepper />
         </>
     )
 }
