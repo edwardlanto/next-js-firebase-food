@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "noEmit": true,
-        "jsx": "preserve",
+        "jsx": "react",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
         "skipLibCheck": true,
@@ -20,6 +20,6 @@
         "**/*.tsx",
         "pages/_app.tsx",
         "next.config.js"
-, "tests/asdfasdfsetupTests.tsx"    ],
+, "tests/setupTests.js"    ],
     "exclude": ["node_modules", "**/*.spec.ts"]
 }
