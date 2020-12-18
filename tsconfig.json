@@ -1,25 +1,33 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "noEmit": true,
-        "jsx": "preserve",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strict": false,
-        "forceConsistentCasingInFileNames": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true
-    },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        "pages/_app.tsx",
-        "next.config.js"
-, "tests/asdfasdfsetupTests.tsx"    ],
-    "exclude": ["node_modules", "**/*.spec.ts"]
+  "compileOnSave": false,
+  "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "jsx": "preserve",
+      "allowJs": true,
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "removeComments": false,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "skipLibCheck": true,
+      "baseUrl": ".",
+      "typeRoots": [
+          "./node_modules/@types"
+      ],
+      "lib": [
+          "dom",
+          "es2015",
+          "es2016"
+      ]
+  },
+  "exclude": [
+      "node_modules",
+      "**/*.spec.ts",
+      "**/*.spec.tsx",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+  ]
 }

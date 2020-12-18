@@ -1,21 +1,17 @@
-const axios = require('axios')
-import { categories } from '../helpers/categories'
-// import Layout from '../components/dashboard-layout'
-import SearchCategories from '../components/SearchCategories/SearchCategories'
-export default function Home({ data }) {
+
+export default function Home({ }) {
     return (
         <div>
-            <SearchCategories categories={data.categoriesArr} />
+            Home
         </div>
     )
 }
 
 // This gets called on every request
 export const getStaticProps = async (context) => {
-    const data = await categories();
     return {
         props: {
-            data: data,
+            data: "TEST"
         },
     }
 }
