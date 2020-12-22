@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import LoginForm from '../components/forms/SignInForm'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from 'firebase'

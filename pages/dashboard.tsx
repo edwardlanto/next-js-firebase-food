@@ -2,7 +2,8 @@
 import SearchCategories from '../components/SearchCategories/SearchCategories'
 import { categories } from '../helpers/categories'
 // import RestaurantStepper from '../components/steppers/RestaurantStepper'
-import React, { useState } from 'react';
+import React from 'react';
+import Image from 'next/image'
 
 export default function DashboardDashBoardPage({ categories }){
     // const auth = useRequireAuth();
@@ -15,7 +16,12 @@ export default function DashboardDashBoardPage({ categories }){
 
                     <div>
                         {/* <!-- App Logo --> */}
-                        Byte
+                        <Image
+                            src="/fortwo-logo.png"
+                            alt="Picture of the author"
+                            width={500}
+                            height={100}
+                        />
                     </div>
 
                     <ul className="mt-2 text-gray-700 dark:text-gray-400 capitalize">
@@ -382,9 +388,8 @@ export default function DashboardDashBoardPage({ categories }){
 
 // This gets called on every request
 export const getStaticProps = async (context) => {
-
+    console.log('Context:', context);
     const data = await categories();
-    console.log('data', data);
     return {
         props: {
             categories: data.categoriesArray

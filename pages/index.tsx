@@ -9,6 +9,7 @@ export default function Home({ }) {
 
 // This gets called on every request
 export const getStaticProps = async (context) => {
+    console.log("Context", context);
     return {
         props: {
             data: "TEST"

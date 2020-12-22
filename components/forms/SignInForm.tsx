@@ -49,6 +49,7 @@ const LoginForm: React.FC = () => {
               {errors.email.message}
             </div>
           )}
+          {error}
         </div>
       </div>
       <div className="mt-4">
