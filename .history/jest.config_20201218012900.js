@@ -19,6 +19,6 @@ module.exports = {
     ],
     collectCoverage: true,
     moduleNameMapper: {
-        '\\.(scss|sass|css)$': 'identity-obj-proxy'
-    }
+        '\\.(scss|sass|css)$': 'identity-obj-proxy',
+      }
 };

@@ -17,8 +17,5 @@ module.exports = {
     moduleFileExtensions: [
         'ts', 'tsx', 'js', 'jsx'
     ],
-    collectCoverage: true,
-    moduleNameMapper: {
-        '\\.(scss|sass|css)$': 'identity-obj-proxy'
-    }
+    collectCoverage: true
 };

@@ -1,0 +1,14 @@
+{
+    "presets": [
+        "@babel/preset-react",
+        "@babel/preset-env",
+        "next/babel",
+        "es2015", 
+        "stage-0" 
+    ],
+    "plugins": [
+        "@babel/plugin-transform-react-jsx",
+        "@babel/plugin-syntax-jsx",
+        "@babel/plugin-proposal-class-properties"
+    ]
+}
