@@ -7,9 +7,9 @@ export const firebaseConfig = {
   authDomain: process.env.authDomain,
   databaseURL: process.env.databaseURL,
   projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
+  storageBucket: process.env.storageBucket
   messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
+  appId: '1:412616893796:web:5d207f4180ed720f518671',
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);

@@ -6,10 +6,10 @@ export const firebaseConfig = {
   apiKey: process.env.apiKey,
   authDomain: process.env.authDomain,
   databaseURL: process.env.databaseURL,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
+  projectId: 'v1-2020-11-12-next-app',
+  storageBucket: 'v1-2020-11-12-next-app.appspot.com',
+  messagingSenderId: '412616893796',
+  appId: '1:412616893796:web:5d207f4180ed720f518671',
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);

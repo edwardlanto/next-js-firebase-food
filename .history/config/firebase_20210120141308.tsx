@@ -9,7 +9,7 @@ export const firebaseConfig = {
   projectId: process.env.projectId,
   storageBucket: process.env.storageBucket,
   messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
+  appId: process.env.appUd,
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
